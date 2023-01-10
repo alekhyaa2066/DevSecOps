@@ -1,0 +1,18 @@
+# Copyright (c) Microsoft Corporation.
+# Licensed under the MIT license.
+
+variables:
+- name: prefix
+  value: '<name prefix>'
+- name: suffix
+  value: '<name suffix>'
+- name: azureSubscriptionEndpoint
+  value: '<ADO service connection name>'
+
+- name: stagingSubscriptionEndpoint
+  value: '<Staging key vault ADO service connection name>' # $(azureSubscriptionEndpoint) if the key vault is in the same subscription
+- name: stagingKeyVaultName
+  value: 'key vaul name'
+
+- name: location
+  value: <Azure region>

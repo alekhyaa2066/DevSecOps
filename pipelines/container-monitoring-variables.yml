@@ -1,0 +1,46 @@
+# Copyright (c) Microsoft Corporation.
+# Licensed under the MIT license.
+
+variables:
+- name: workspaceName
+  value: $(prefix)-LA$(suffix)
+- name: workspaceResourceGroupName
+  value: $(prefix)-OpsRG-Pri$(suffix)
+- name: resourceGroupName
+  value: $(prefix)-ContosoSH360ClusterRG$(suffix)
+- name: AKSName
+  value: $(prefix)-ContosoSH360Cluster$(suffix)
+- name: NonMonitoredAKSName
+  value: $(prefix)-ContosoNonMonitoredCluster$(suffix)
+- name: ContosoSH360ClusterFolder
+  value: '$(Build.SourcesDirectory)'
+
+- name: managedIdentityName
+  value: $(prefix)-mi$(suffix)
+- name: searchTableName
+  value: Container_SearchJob_SRCH
+
+
+- name: workspaceSkuName
+  value: pergb2018
+- name: roleDefinitionName
+  value: Monitoring Metrics Publisher
+- name: aksClusterNetworkPlugin
+  value: azure
+- name: aksClusterNetworkPolicy
+  value: azure
+- name: aksClusterServiceCidr
+  value: 10.0.0.0/16
+- name: aksClusterDockerBridgeCidr
+  value: 172.17.0.1/16
+- name: clusterVersion
+  value: 1.23.5
+
+- name: monitoredAKSNetworkPolicy
+  value: azure
+- name: monitoredAKSNetworkPlugin
+  value: azure
+- name: nonMonitoredAKSNetworkPolicy
+  value: none
+- name: nonMonitoredAKSNetworkPlugin
+  value: kubenet

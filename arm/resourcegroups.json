@@ -1,0 +1,35 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.1",
+    "parameters": {
+        "resourceGroupLocation": {
+            "type": "string"
+        },
+        "resourceGroupNames": {
+            "type": "array"
+        },
+        "tags": {
+            "type": "object",
+            "defaultValue": {}
+        }
+    },
+    "variables": {
+    },
+    "resources": [
+       {
+          "type": "Microsoft.Resources/resourceGroups",
+          "name": "[parameters('resourceGroupNames')[copyIndex()]]",
+          "apiVersion": "2020-10-01",
+          "copy": {
+              "name": "resourceGroupLoop",
+              "count": "[length(parameters('resourceGroupNames'))]"
+          },
+          "location": "[parameters('resourceGroupLocation')]",
+          "tags": "[parameters('tags')]",
+          "properties": {}
+       }
+    ],
+    "outputs": {}
+}
